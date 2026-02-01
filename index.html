@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para la mujer de mis sueños</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Fondo difuminado principal -->
+    <div class="blurred-background"></div>
+    
+    <!-- Pantalla inicial con el sobre -->
+    <div id="initial-screen" class="screen active">
+        <div class="container">
+            <h1 class="title">Para Osmary</h1>
+            <p class="subtitle">La mujer que ilumina mi vida</p>
+            
+            <div class="envelope-container">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-front">
+                        <div class="heart">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <p class="envelope-text">Haz clic para abrir</p>
+                    </div>
+                    <div class="envelope-back"></div>
+                    <div class="letter">
+                        <p>Mi amor,</p>
+                        <p>Tengo algo muy importante que preguntarte...</p>
+                        <div class="heart-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <p><i class="fas fa-hand-point-up"></i> Abre el sobre para descubrir mi pregunta</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cuestionario (oculto inicialmente) -->
+    <div id="question-screen" class="screen">
+        <div class="question-container">
+            <div class="question-header">
+                <h2><i class="fas fa-star"></i> Para Osmary <i class="fas fa-star"></i></h2>
+            </div>
+            
+            <div class="question-content">
+                <div class="heart-decoration">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="question-text">¿Me darías el honor de convertirme en tu novio?</p>
+                
+                <div class="options">
+                    <button id="yes-btn" class="btn yes-btn">
+                        <i class="fas fa-check-circle"></i> ¡Sí, por supuesto!
+                    </button>
+                    <button id="no-btn" class="btn no-btn">
+                        <i class="fas fa-times-circle"></i> No
+                    </button>
+                </div>
+                
+                <div class="message">
+                    <p>Cada día contigo es un regalo, y espero poder compartir muchos más a tu lado.</p>
+                    <p class="signature">- Jesús</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pantalla de respuesta NO (oculta inicialmente) -->
+    <div id="no-screen" class="screen">
+        <div class="sad-background"></div>
+        <div class="sad-message">
+            <h2><i class="fas fa-cloud-rain"></i> Comprendo...</h2>
+            <p>Respeto tu decisión y siempre valoraré el tiempo que hemos compartido.</p>
+            <p>Eres una persona maravillosa y mereces toda la felicidad del mundo.</p>
+            <p>Te deseo lo mejor en tu vida, siempre.</p>
+            <div class="broken-heart">
+                <i class="fas fa-heart-broken"></i>
+            </div>
+            <p class="final-message">Con cariño, Jesús</p>
+        </div>
+    </div>
+    
+    <!-- Pantalla de respuesta SÍ (oculta inicialmente) -->
+    <div id="yes-screen" class="screen">
+        <!-- Fondo sin difuminar para pantalla SÍ -->
+        <div class="clear-background"></div>
+        
+        <div class="starry-sky">
+            <!-- Estrellas generadas con JavaScript -->
+            <div class="stars-container"></div>
+            
+            <!-- Luna con soga - CON IMAGEN PNG -->
+            <div class="moon-container">
+                <!-- Contenedor de la soga con efecto de máscara -->
+                <div class="rope-container" id="rope-container">
+                    <div class="rope" id="rope"></div>
+                    <div class="rope-mask" id="rope-mask"></div>
+                </div>
+                
+                <!-- Luna con imagen PNG -->
+                <div class="moon" id="moon">
+                    <img src="luna.png" alt="Luna" class="moon-image" id="moon-image">
+                </div>
+            </div>
+            
+            <!-- Mensaje final -->
+            <div class="final-message-container">
+                <h2 class="final-title">¡Gracias por aceptar!</h2>
+                <div class="message-content">
+                    <p>Osmary, prometo hacerte feliz cada día de mi vida.</p>
+                    <p>Eres la mujer más maravillosa que he conocido,</p>
+                    <p>y hoy cumplí mi promesa: <span class="highlight">te bajé la luna jsjs</span>.</p>
+                    <p>Porque para ti, no hay nada imposible.</p>
+                    <p>Con todo mi amor,</p>
+                    <p class="signature-large">Jesús</p>
+                </div>
+                <div class="hearts-container">
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reproductor de música -->
+        <div class="music-player">
+            <audio id="love-song" loop>
+                <source src="love-song.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <button id="music-toggle" class="music-btn">
+                <i class="fas fa-music"></i> <span>Música: ON</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Notificación de envío de correo -->
+    <div id="email-notification" class="notification">
+        <p><i class="fas fa-envelope"></i></p>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
